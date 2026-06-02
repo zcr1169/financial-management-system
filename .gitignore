@@ -17,6 +17,10 @@ out/
 __pycache__/
 *.pyc
 
+# 数据文件(含敏感信息)
+DATA.xlsx
+EXE文件/DATA.xlsx
+
 # 超大文件 (超过GitHub 100MB限制)
 *.zip
 *.mp4
