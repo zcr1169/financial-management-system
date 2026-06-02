@@ -1,0 +1,24 @@
+# jpackage runtime (too large)
+EXE文件/runtime/
+
+# auto backups
+EXE文件/backup/
+
+# build artifacts
+build/
+out/
+*.class
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# 超大文件 (超过GitHub 100MB限制)
+*.zip
+*.mp4
+*.rar
+*.lnk

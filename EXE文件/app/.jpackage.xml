@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<jpackage-state version="21.0.10" platform="windows">
+  <app-version>1.0.0</app-version>
+  <main-launcher>财务管理系统</main-launcher>
+  <main-class>com.fim.FinApp</main-class>
+  <signed>false</signed>
+  <app-store>false</app-store></jpackage-state>

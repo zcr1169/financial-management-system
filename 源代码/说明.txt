@@ -1,0 +1,49 @@
+【环境要求】
+  - JDK 21 或以上
+  - Gradle 8.x（可选，也可直接用 javac）
+
+【目录结构】
+  源代码/
+  ├── build.gradle          Gradle 构建配置
+  ├── settings.gradle       项目名称
+  ├── lib/                  编译依赖（共11个JAR）
+  │   ├── flatlaf-3.5.4.jar       界面美化
+  │   ├── poi-5.3.0.jar           Excel读写核心
+  │   ├── poi-ooxml-5.3.0.jar
+  │   ├── poi-ooxml-lite-5.3.0.jar
+  │   ├── xmlbeans-5.2.1.jar
+  │   ├── commons-collections4-4.4.jar
+  │   ├── commons-compress-1.27.1.jar
+  │   ├── commons-io-2.18.0.jar
+  │   ├── commons-math3-3.6.1.jar
+  │   ├── log4j-api-2.24.3.jar
+  │   └── log4j-core-2.24.3.jar
+  └── com/fim/
+      ├── FinApp.java             程序入口（main方法）
+      ├── dao/ExcelDAO.java       数据层（Excel读写）
+      ├── model/（5个）            数据模型
+      │   ├── User.java           用户（5种角色、权限方法）
+      │   ├── Voucher.java        凭证（13个字段）
+      │   ├── AccountSubject.java 会计科目
+      │   ├── OpeningBalance.java 期初余额
+      │   └── OperationLog.java   操作日志
+      ├── service/（7个）          业务逻辑层
+      │   ├── AuthService.java    登录认证、用户管理
+      │   ├── AccountService.java 科目管理
+      │   ├── VoucherService.java 凭证填制、审核、签字、记账
+      │   ├── ClosingService.java 期末损益结转、月结
+      │   ├── ReportService.java  七种财务报表生成
+      │   ├── LogService.java     操作日志缓冲与写入
+      │   └── ExportService.java  Excel/PDF导出
+      └── ui/（11个）              界面层
+          ├── LoginFrame.java      登录界面
+          ├── MainFrame.java       主界面（看板+导航+自动备份）
+          ├── VoucherInputPanel.java   凭证填制
+          ├── VoucherProcessPanel.java 凭证审核/签字/记账
+          ├── BalanceManagePanel.java  期初余额管理
+          ├── AccountManagePanel.java  会计科目管理
+          ├── PeriodEndPanel.java      期末处理
+          ├── ReportPanel.java         报表查询导出
+          ├── UserManagePanel.java     用户管理
+          ├── LogPanel.java            日志查看
+          └── AutoCompleteComboBox.java 自动补全下拉框

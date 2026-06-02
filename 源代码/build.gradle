@@ -1,0 +1,51 @@
+plugins {
+    id 'application'
+    id 'org.beryx.jlink' version '3.1.1'
+}
+
+group = 'com.fim'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+application {
+    mainClass = 'com.fim.FinApp'
+    applicationName = '财务管理系统'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.aliyun.com/repository/public' }
+}
+
+dependencies {
+    implementation 'com.formdev:flatlaf:3.5.4'
+    implementation 'org.apache.poi:poi:5.3.0'
+    implementation 'org.apache.poi:poi-ooxml:5.3.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.24.3'
+    implementation 'org.apache.logging.log4j:log4j-core:2.24.3'
+    implementation 'com.itextpdf:itext7-core:8.0.3'
+}
+
+// Copy Excel data file to dist
+tasks.named('processResources') {
+    from('.') {
+        include 'DATA.xlsx'
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+// jlink task for creating custom runtime image (used by jpackage)
+jlink {
+    options = ['--strip-debug', '--compress', 'zip-9', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = '财务管理系统'
+    }
+}
